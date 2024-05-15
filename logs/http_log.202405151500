@@ -1,0 +1,2 @@
+{"time":"2024-05-15T15:03:00.928372683+07:00","id":"","remote_ip":"::1","host":"localhost:8181","method":"POST","uri":"/user/login","user_agent":"PostmanRuntime/7.37.3","status":200,"error":"","latency":86090234,"latency_human":"86.090234ms","bytes_in":56,"bytes_out":199}
+{"time":"2024-05-15T15:09:23.004398315+07:00","id":"","remote_ip":"::1","host":"localhost:8181","method":"POST","uri":"/user/login","user_agent":"PostmanRuntime/7.37.3","status":200,"error":"","latency":82665247,"latency_human":"82.665247ms","bytes_in":56,"bytes_out":199}
