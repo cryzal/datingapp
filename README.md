@@ -17,37 +17,24 @@ Bagian Kanan ini biasanya menyimpan kumpulan teknologi yang digunakan dalam memb
 ### Ihtisar
 Oleh karena itu, berikut ini adalah susunan folder yang dibangun berdasarkan arsitektur heksagonal
 
-app/                                # tempat inisiasi aplikasi
-    app_user.go                     # tempat untuk init framework echo dan init DB
-core/
-    entities/                       # berisi kumpulan entities dan domain logicnya
-        user.go
-    port/
-        user/   
-            repository.go           # berisi method interface dari repository
-            service.go              # berisi method interface dari service
-        service/
-            user.go                 # berisi service yang exec domain logic
-infrastructure/
-    repository/
-        mysql/
-            adapter/
-                user_repository_adapter.go # berisi mengubah entity ke model
-            models/
-                user_model.go       # model yang merepresentasikan structure table
-        connect.go                  # untuk init connect dengan DB
-        user_repository.go          # berisi query yang di exec
-    user_gateway.go                 # berisi inject koneksi DB dengan repository
-interface/
-    rest/
-        user/  
-            handler.go              # berisi handler untuk diteruskan ke service
-            request.go              # payload request
-            response.go             # payload response
-        router.go                   # berisi route dari rest
-shared/                             # berisi helper library
-test/                               # berisi mock
-    
-
-
-
+```
+├── app             #tempat untuk init framework echo dan init DB
+├── core
+    ├── entities    # berisi kumpulan entities dan domain logicnya
+    ├── port
+        ├── user    # berisi kumpulan method interface inport dan outport
+    ├── service     # berisi service yang exec domain logic
+       ├── user.go              
+├── infrastructure 
+    ├── repository
+        ├── mysql       # berisi init koneksi dan querynya
+            ├── adapter # berisi method yang mengubah entity menjadi model
+            ├── adapter # kumpulan model yang merepresentasikan structure table
+    ├── usergateway.go  # inject infrastructure untuk dikonsumsi app
+├── interface
+    ├── rest
+        ├── user        # berisi handler dan payload (response dan request)  
+        ├── router.go   # route 
+├── shared              # berisi helper library
+├── test                # berisi mock
+```
