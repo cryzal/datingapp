@@ -64,3 +64,35 @@ func TestUserService_Login(t *testing.T) {
 		})
 	}
 }
+
+func TestUserService_Create(t *testing.T) {
+	type fields struct {
+		UserRepositoryAdapter port.UserAdapter
+	}
+	type args struct {
+		user *entities.User
+	}
+	tests := []struct {
+		name    string
+		fields  fields
+		args    args
+		wantErr bool
+	}{
+		{
+			name:    "tes insert 1",
+			fields:  fields{UserRepositoryAdapter: &repository.UserRepository{}},
+			args:    args{user: &entities.User{Email: "agung@gmail.com", Password: "1234"}},
+			wantErr: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			p := &UserService{
+				UserRepositoryAdapter: tt.fields.UserRepositoryAdapter,
+			}
+			if err := p.Create(tt.args.user); (err != nil) != tt.wantErr {
+				t.Errorf("UserService.Create() error = %v, wantErr %v", err, tt.wantErr)
+			}
+		})
+	}
+}
